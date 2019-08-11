@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
               IconButton(icon: Icon(LineIcons.user,color: Colors.white,size: 30,),onPressed: () {},),
               IconButton(icon: Icon(LineIcons.star_o,color: Colors.white,size: 30,),onPressed: () {},),
               IconButton(icon: Icon(Icons.location_searching,color: Colors.white,size: 30,),onPressed: () {},),
-              IconButton(icon: Icon(LineIcons.home,color: Colors.white,size: 30,),onPressed: () {},),
+              IconButton(icon: Icon(LineIcons.home,color: Color.fromRGBO(245, 54, 86, 1),size: 30,),onPressed: () {},),
             ],
           ),
         ),
@@ -78,23 +78,88 @@ class _HomeState extends State<Home> {
 
         Container(
           width: double.infinity,
-          height: 200,
-          color: Colors.blue,
-          child: ListView(
-            children: <Widget>[
-              ListView(
-                children: <Widget>[
-                  Container(
-                    width: double.infinity,
-                    height: 100,
-                    color: Colors.red,
-                  )
-                ],
-              )
-            ],
+          height: 205,
+          child: ListView.builder(
+            addAutomaticKeepAlives: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: (context,index) {
+              return Container(
+                width: 320,
+                height: 205,
+                padding: EdgeInsets.symmetric(horizontal: 13),
+                child: Container(
+                  height: double.infinity,
+                  width: double.infinity,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        width: double.infinity,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(topRight: Radius.circular(5),topLeft: Radius.circular(5)),
+                           image: DecorationImage(
+                             image:ExactAssetImage('images/pexels-photo-1640772_350x120.jpeg'),
+                             fit: BoxFit.cover
+                           )),
+                      ),
+                      Container(
+                        width: double.infinity,
+                        height: 85,
+                        decoration: BoxDecoration(borderRadius: BorderRadius.only(bottomRight: Radius.circular(5),bottomLeft: Radius.circular(5)), color: Color.fromRGBO(73, 1, 169, 1)),
+                        child: Column(children: <Widget>[
+                          Container(
+                            margin: EdgeInsets.symmetric(vertical: 3),
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            alignment: Alignment.centerRight,
+                            child: Text('رستوران همبر سرد',textAlign: TextAlign.right, style: TextStyle(color: Colors.white,fontSize: 18),),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            alignment: Alignment.centerRight,
+                            child: Text('تهران - جوادیه',textAlign: TextAlign.right, style: TextStyle(color: Colors.grey[500],fontSize: 14),),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            alignment: Alignment.centerRight,
+                            child: Row(
+                              children: <Widget>[
+                                Container(
+                                  child: Row(children: <Widget>[
+                              Icon(LineIcons.star,color: Color.fromRGBO(255, 175, 32, 1),size: 17,),
+                              Icon(LineIcons.star,color: Color.fromRGBO(255, 175, 32, 1),size: 17,),
+                              Icon(LineIcons.star,color: Color.fromRGBO(255, 175, 32, 1),size: 17,),
+                              Icon(LineIcons.star,color: Color.fromRGBO(255, 175, 32, 1),size: 17,),
+                              Icon(LineIcons.star,color: Color.fromRGBO(255, 175, 32, 1),size: 17,),
+                            ],
+                            ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(right: 110),
+                                  child: Text('سفارش غذا' , style: TextStyle(color: Color.fromRGBO(245, 54, 86, 1) , fontSize: 16,fontWeight: FontWeight.w700),),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
           ),
         ),
+        FlatButton(
+          child: ListTile(
+            trailing: Text('مشاهده همه' , style: TextStyle(color: Color.fromRGBO(245, 54, 86, 1) , fontSize: 16),),
+            contentPadding: EdgeInsets.all(0),
+            leading: Text('برترین رستورانها', style: TextStyle(color: Colors.white,fontWeight: FontWeight.w700,fontSize: 20),),
+          ),
+          onPressed: () {},
+        ),
 
+        
           ],
         )
       )
